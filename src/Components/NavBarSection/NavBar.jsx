@@ -18,12 +18,6 @@ const NavBar = () => {
         <li className='menuList text-[#6f6f6f] hover:text-[#004DFF]'>Blog</li>
         <li className='menuList text-[#6f6f6f] hover:text-[#004DFF]'>Connexion</li>
         <li className='menuList text-[#6f6f6f] hover:text-[#004DFF]'>Inscription</li>
-
-
-
-
-
-
       </div>
     </div>
   );
