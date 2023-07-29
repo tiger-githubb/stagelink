@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import NavBar from './Components/NavBarSection/NavBar'
 import Footer from './Components/FooterSection/Footer'
 import Search from './Components/SearchSection/Search'
@@ -14,8 +12,9 @@ function App() {
     <NavBar/>
     <Search/>
     <Stage/>
-    <Footer/>
     <Value/>
+    <Footer/>
+ 
 
 
     

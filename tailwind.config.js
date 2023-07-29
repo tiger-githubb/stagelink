@@ -2,14 +2,14 @@
 export default {
   
   //content: ["./src/**/*.{html,js}"],
-  content:[
-    "/index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors:{
-        'primary' : '#FF0000',
+        'primary' : '#001E65',
         'secondary' : '#BA2D0B',
         'titlecolor' : '#0D0140',
         'textcolor' : '#524B6B',
