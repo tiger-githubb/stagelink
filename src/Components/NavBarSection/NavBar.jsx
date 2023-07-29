@@ -3,11 +3,11 @@ import React from 'react';
 const NavBar = () => {
   return (
     <div className='navBar flex justify-between items-center p-[3rem]'>
+      
       <div className="logoDiv">
-      <h1 className="logo text-[25px] text-[#001E65]">
-        <strong>Stage</strong>Link
-      </h1>
-
+        <h1 className="logo text-[25px] text-[#001E65]">
+          <strong>Stage</strong>Link
+        </h1>
       </div>
 
       <div className='menu flex gap-8'>
