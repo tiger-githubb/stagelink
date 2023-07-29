@@ -1,13 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import NavBar from './Components/NavBarSection/NavBar'
+import Footer from './Components/FooterSection/Footer'
+import Search from './Components/SearchSection/Search'
+import Stage from './Components/StageSection/Stage'
+import Value from './Components/ValueSection/Value'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div>skai</div>
+   <div className='w-[85%] m-auto bg-[#FFFFFF]'>
+
+    <NavBar/>
+    <Search/>
+    <Stage/>
+    <Footer/>
+    <Value/>
+
+
+    
+   </div>
   )
 }
 

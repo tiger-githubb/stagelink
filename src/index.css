@@ -10,25 +10,31 @@
    }
 
    body{
-    background: white;
+    background: rgb(255, 255, 255);
    }
-/*
+
    li{
     list-style: none;
     cursor: pointer;
     position: relative;
    }
 
-   li:hover ::before{
+   li:hover::before{
     position: absolute;
     content: '';
     height: 4px;
     width: 100%;
     background: #130160;
+    right: 0;
+    bottom: -10px;
+    color: blueviolet;
    }
-
+   /*
+   .card{
+    background: #000;
+   }
+*/
    .icon{
     cursor: pointer;
-    
    }
-   */
+   
