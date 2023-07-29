@@ -1,0 +1,39 @@
+# Ignore les répertoires et les fichiers générés par Node.js et npm
+node_modules/
+build/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore les fichiers d'environnement spécifiques
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore les fichiers d'éditeur spécifiques
+.vscode/
+.idea/
+
+# Ignore les fichiers de sauvegarde automatique
+*.bak
+*.backup
+
+# Ignore les fichiers de cache
+.cache/
+
+# Ignore les fichiers de dépendances de gestionnaire de paquets
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore les fichiers de couverture de code
+coverage/
+.nyc_output/
+
+# Ignore les fichiers de build spécifiques à React
+build/
+dist/
