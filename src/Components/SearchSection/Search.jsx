@@ -34,7 +34,7 @@ export const Search = () => {
             </div>
 
 
-            <button className='bg-[#001E65] h-full p-5 px-10 rounded-[10px] text-[#ffffff] cursor-pointer hover:bg-blue-300'>Recherche</button>
+            <button className='bg-primary h-full p-5 px-10 rounded-[10px] text-[#ffffff] cursor-pointer hover:bg-blue-300'>Recherche</button>
 
         </div>
       </form>
