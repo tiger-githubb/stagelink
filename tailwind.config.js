@@ -9,11 +9,12 @@ export default {
   theme: {
     extend: {
       colors:{
-        'primary' : '#001E65',
-        'secondary' : '#BA2D0B',
+        'primary' : '#130160',
+        'secondary' : '#BA2D0B;;',
         'titlecolor' : '#0D0140',
         'textcolor' : '#524B6B',
         'third' : '#D6CDFE',
+        'greyIsh': '#f1f4f8',
         'disable': 'rgba(19, 1, 96, 0.38)',
       }
     },
