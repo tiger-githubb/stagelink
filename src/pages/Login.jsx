@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -68,7 +68,8 @@ const Login = () => {
           </button>
         </div>
       </form>
-      {/* <p>Pas de compte <Link to="signup" >Creer un compte</Link></p> */}
+    <p>Pas de compte <Link to="/signup" >Creer un compte</Link></p>
+      
     </div>
   )
 }

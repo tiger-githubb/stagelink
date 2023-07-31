@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Singnup = () => {
@@ -73,6 +73,9 @@ const Singnup = () => {
                   S'inscrire
               </button>
           </div>
+
+          <p>J'ai deja un compte <Link to="/login" >Connexion</Link></p>
+
       </form>
   )
 }
