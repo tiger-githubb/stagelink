@@ -1,24 +1,11 @@
-import NavBar from './Components/NavBarSection/NavBar'
-import Footer from './Components/FooterSection/Footer'
-import Search from './Components/SearchSection/Search'
-import Stage from './Components/StageSection/Stage'
-import Value from './Components/ValueSection/Value'
-
+import { Outlet } from 'react-router-dom'
+import { getAuth } from "firebase/auth";
 
 function App() {
   return (
-   <div className='w-[85%] m-auto bg-[#FFFFFF]'>
-
-    <NavBar/>
-    <Search/>
-    <Stage/>
-    <Value/>
-    <Footer/>
- 
-
-
-    
-   </div>
+    <div className='w-[85%] m-auto bg-[#FFFFFF]'>
+      <Outlet />
+    </div>
   )
 }
 
