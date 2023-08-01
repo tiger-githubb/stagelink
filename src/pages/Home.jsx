@@ -5,7 +5,6 @@ import NavBar from '../Components/NavBarSection/NavBar';
 import Search from '../Components/SearchSection/Search';
 import Footer from '../Components/FooterSection/Footer';
 import Value from '../Components/ValueSection/Value';
-import Stage from '../Components/StageSection/Stage';
 
 
 const Home = () => {
@@ -16,7 +15,7 @@ const Home = () => {
     <div>
       < NavBar />
       < Search />
-      < Stage />
+
       < Value />
       < Footer />
     </div>

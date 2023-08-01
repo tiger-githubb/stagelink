@@ -33,11 +33,14 @@ const router = createBrowserRouter (
       <Route path='/' element={<Protected/>}/>
       <Route path='/' index element={<Home/>}/>
     </Route>
+
   )
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+<ChakraProvider theme={theme}>
+<RouterProvider router={router}/>
+</ChakraProvider>
 
 )
 
