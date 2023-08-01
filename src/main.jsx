@@ -17,9 +17,12 @@ import { Protected } from './Components/Protected.jsx';
 
 const colors = {
   brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
+    hidebouton: '#D6CDFE',
+    title: '#0D014075',
+    second: '#BA2D0B',
+    primary: '#130160',
+    orange:'#FCA34D',
+    textcolor:'#524B6B'
   },
 }
 const theme = extendTheme({ colors })
