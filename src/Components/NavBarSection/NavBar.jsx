@@ -1,59 +1,128 @@
 import React from 'react';
 import { signOut, getAuth } from "firebase/auth";
 import { useNavigate, Link } from 'react-router-dom';
-import { ChakraProvider, Flex, Box, IconButton, useDisclosure, VStack, HStack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  IconButton,
+  useColorMode,
+  useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  VStack,
+} from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
-
 const NavBar = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const navigate = useNavigate();
-  const auth = getAuth();
-  const handlelogout = async () => {
-    await signOut(auth);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
 
-    navigate("/login");
-  }
+  const handleLogout = () => {
+    // Mettez votre logique de déconnexion ici
+  };
+
   return (
-    <Flex
-      bg="gray.800"
-      color="white"
-      px={4}
-      py={3}
-      align="center"
-      justify="space-between"
-    >
-      {/* Logo */}
-      <Box>
-        <Text fontSize="lg" fontWeight="bold">My Website</Text>
-      </Box>
+    <Box bg="gray.800" px={4} py={3}>
+      <Flex justify="space-between" align="center">
+        {/* Logo */}
+        <Text fontSize="xl" fontWeight="bold" color="white">
+          <strong>Stage</strong>Link
+        </Text>
 
-      {/* Hamburger menu for mobile */}
-      <IconButton
-        display={{ base: "flex", md: "none" }}
-        onClick={isOpen ? onClose : onOpen}
-        icon={<HamburgerIcon />}
-        variant="ghost"
-      />
+        {/* Hamburger menu for mobile */}
+        <IconButton
+          display={{ base: 'flex', md: 'none' }}
+          onClick={isOpen ? onClose : onOpen}
+          icon={<HamburgerIcon />}
+          variant="ghost"
+          color="white"
+        />
 
-      {/* Navbar items */}
-      <Box
-        display={{ base: isOpen ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <HStack spacing={4}>
-          <Text>Home</Text>
-          <Text>About</Text>
-          <Text>Contact</Text>
-          {/* Add more menu items as needed */}
-        </HStack>
-      </Box>
-    </Flex>
+        {/* Drawer for mobile */}
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+          <DrawerOverlay>
+            <DrawerContent bg="gray.800" color="white">
+              <DrawerCloseButton />
+              <DrawerHeader>Menu</DrawerHeader>
+              <DrawerBody>
+                <VStack spacing={4}>
+                  <Text
+                    as={Link}
+                    to="/stage"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Stage
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/entreprise"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Entreprise
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/a-propos"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    A propos
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/contact"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Contact
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/blog"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Blog
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/login"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Connexion
+                  </Text>
+                  <Text
+                    as={Link}
+                    to="/signup"
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                  >
+                    Inscription
+                  </Text>
+                  <Text
+                    color="gray.400"
+                    _hover={{ color: 'white' }}
+                    onClick={handleLogout}
+                    cursor="pointer"
+                  >
+                    Deconnexion
+                  </Text>
+                </VStack>
+              </DrawerBody>
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
+      </Flex>
+    </Box>
   );
 };
 
 export default NavBar;
-
-
