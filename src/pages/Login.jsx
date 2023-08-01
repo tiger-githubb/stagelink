@@ -1,77 +1,155 @@
-import React, { useState } from 'react'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
+import {
+  Box,
+  Center,
+  Heading,
+  Input,
+  Button,
+  FormControl,
+  FormLabel,
+  VStack,
+  InputGroup,
+  InputRightElement,
+  InputLeftElement,
+  Icon,
+  useToast,
+} from '@chakra-ui/react';
+import { HiOutlineEye, HiOutlineEyeOff, HiOutlineLogin,HiOutlineX ,HiLockClosed,HiMailOpen} from 'react-icons/hi';
 
 
 const Login = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // État pour afficher/masquer le mot de passe
   const auth = getAuth();
   const navigate = useNavigate();
-
+  const toast = useToast();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log(userCredential);
       const user = userCredential.user;
       localStorage.setItem('token', user.accessToken);
       localStorage.setItem('user', JSON.stringify(user));
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error);
-    }
-    console.log('Formulaire soumis:');
+      let errorMessage = "Une erreur s'est produite lors de la connexion. Veuillez réessayer.";
 
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errorMessage = "L'adresse e-mail saisie est invalide. Veuillez saisir une adresse e-mail valide.";
+          break;
+        case 'auth/user-disabled':
+          errorMessage = "Votre compte a été désactivé. Veuillez contacter l'administrateur du site.";
+          break;
+        case 'auth/user-not-found':
+          errorMessage = "Aucun compte associé à cette adresse e-mail. Veuillez vous inscrire d'abord.";
+          break;
+        case 'auth/wrong-password':
+          errorMessage = "Le mot de passe est incorrect. Veuillez réessayer.";
+          break;
+        default:
+          errorMessage = "Une erreur s'est produite lors de la connexion. Veuillez réessayer.";
+          break;
+      }
+
+      toast({
+        title: 'Erreur lors de la connexion',
+        description: errorMessage,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
+
+  // Fonction pour afficher/masquer le mot de passe
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // Fonction pour vider les champs du formulaire
+  const handleClearFields = () => {
+    setEmail('');
+    setPassword('');
   };
 
   return (
-    <div>
-      <h3>Login page</h3>
-      <form onSubmit={handleSubmit} className="max-w-sm mx-auto p-4 bg-white shadow-md rounded-md">
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-            Email:
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border-gray-300 border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
-            Password:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full border-gray-300 border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-300"
-            required
-          />
-        </div>
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          >
-            Connexion
-          </button>
-        </div>
-      </form>
-    <p>Pas de compte <Link to="/signup" >Creer un compte</Link></p>
-      
-    </div>
-  )
-}
+    <Box bg="green.100">
+      <Center h="100vh">
+        <Box p={6} bg="white" shadow="md" rounded="md" w={{ base: '90%', sm: '400px' }}>
+          <VStack spacing={4}>
+            <Heading as="h3" size="lg">
+              Connexion
+            </Heading>
+            <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+              <FormControl isRequired>
+                <FormLabel>Email:</FormLabel>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none">
+                    <Icon as={HiMailOpen} color="black" />
+                  </InputLeftElement>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    focusBorderColor="blue.300"
+                    required
+                  />
+                </InputGroup>
+              </FormControl>
+              <FormControl mt={4} isRequired>
+                <FormLabel>Password:</FormLabel>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none">
+                    <Icon as={HiLockClosed} color="black" />
+                  </InputLeftElement>
+                  <Input
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    focusBorderColor="blue.300"
+                    required
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button h="1.75rem" size="sm" onClick={handleShowPassword}>
+                      {showPassword ? <Icon as={HiOutlineEyeOff} /> : <Icon as={HiOutlineEye} />}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
+              <Center mt={4}>
+                <Button type="submit"  leftIcon={<HiOutlineLogin />} colorScheme="blue" size="md" fontWeight="bold" width="100%">
+                  Connexion
+                </Button>
+                <Button
+                leftIcon={<HiOutlineX />}
+                  ml={2}
+                  colorScheme="red"
+                  size="md"
+                  fontWeight="bold"
+                  width="100%"
+                  onClick={handleClearFields}
+                >
+                  Annuler
+                </Button>
+              </Center>
+            </form>
+            <Box>
+              Pas de compte{'   '}
+              <Link to="/signup" style={{ fontWeight: 'bold', color: 'blue.600' }}>
+                Creer un compte
+              </Link>
+            </Box>
+          </VStack>
+        </Box>
+      </Center>
+    </Box>
+  );
+};
 
-export default Login
+export default Login;

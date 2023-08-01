@@ -6,7 +6,6 @@ import {
   Flex,
   Text,
   IconButton,
-  useColorMode,
   useDisclosure,
   Drawer,
   DrawerBody,
@@ -19,12 +18,17 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleLogout = () => {
-    // Mettez votre logique de déconnexion ici
-  };
+  const navigate = useNavigate();
+  const auth = getAuth();
+  const handlelogout = async () => {
+    await signOut(auth);
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    navigate("/login");
+  }
 
   return (
     <Box bg="gray.800" px={4} py={3}>
@@ -110,7 +114,7 @@ const NavBar = () => {
                   <Text
                     color="gray.400"
                     _hover={{ color: 'white' }}
-                    onClick={handleLogout}
+                    onClick={handlelogout}
                     cursor="pointer"
                   >
                     Deconnexion
