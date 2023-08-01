@@ -1,11 +1,15 @@
-import { Outlet } from 'react-router-dom'
-import { getAuth } from "firebase/auth";
+import { useState } from 'react'
+import './App.css'
 
 function App() {
+
   return (
-    <div className='w-[85%] m-auto bg-[#FFFFFF]'>
-      <Outlet />
+    <div>
+    App
     </div>
+      
+      
+    
   )
 }
 
