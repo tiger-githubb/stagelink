@@ -1,123 +1,182 @@
-import React from 'react'
+import React from 'react';
 import { BiTimeFive } from 'react-icons/bi';
-import logo1 from '../../assets/skm pepiniere.png'
+import { Box, Flex, Image, Text, Button } from '@chakra-ui/react';
+import logo1 from '../../assets/skm pepiniere.png';
+import {
+  Heading,
+  Avatar,
+  Center,
+  Stack,
+  Link,
+  Badge,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { color } from 'framer-motion';
 
-const Data=[
+const data = [
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
   },
   {
-    id:1,
+    id: 1,
     image: logo1,
     title: 'Developpeur Mobile',
     time: 'Now',
     location: 'Lome',
-    desc:'  Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
-    company: 'TechPro.co'
-  }
-
-]
+    desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. esse autem ex voluptas minus magni iste porro eum numquam maxime?',
+    company: 'TechPro.co',
+    subcompany: 'techio'
+  },
+  // Ajoutez ici d'autres objets de données si nécessaire
+];
 
 export const Stage = () => {
   return (
-    <div>
-      <div className="jobContainer flex gap-10 justify-center flex-wrap items-center py-10">
-       {
-        Data.map(({id,image,title,time,location,desc,company})=>{
-          return(
-            <div key={id} className="group group/item singleJob w-[250px] p-[15px]  bg-white rounded-md hover:bg-primary shadow-lg shadow-greyIsh-400/700 hover:shadow-lg">
-            <span className='flex justify-between items-center gap-4'>
-                <h1 className='text-[16px] font-semibold text-titlecolor group-hover:text-white'>
-                  {title}
-                </h1>
-                <span className='flex items-center text-[#ccc] gap-1'> 
-                    <BiTimeFive/>{time}
-                </span>
-  
-               
-            </span>
-             <h6 className='text-[#ccc]'>{location}</h6>
-  
-                <p className='text-[13px] text-[#959595] pt-[20px] border-t-[2px] mt-[20px] group-hover:text-white'>
-                      {desc}
-                </p>
-  
-                <div className="company flex items-center gap-2">
-                  <img src={image} alt="Company logo" className='w-[20%]' />
-                  <span className='text-[14px] py-[1rem] block group-hover:text-white'>{company}</span>
-                </div>
-  
-                <button className='border-[2px] rounded-md block p-[10px] w-full text-[14px] font-semibold text-textcolor hover:bg-white group-hover/item:text-textcolor'>
-                  Postuler maintenant
-                </button>
-          </div>
-          )
-        }
+    <Box >
+      <Flex className='jobContainer' gap='10' justify='center' flexWrap='wrap' py='10' >
+        {data.map(({ id, image, title, time, location, desc, company, subcompany }) => {
+          return (
+            <Center key={id} py={6} >
+              <Box
+              _hover={{ bg: '#CAC9B8' }} // Arrière-plan au survol
+              transition="background-color 0.3s ease"
+                maxW={'320px'}
+                w={'full'}
+                bg={useColorModeValue('white', 'gray.900')}
+                boxShadow={'2xl'}
+                rounded={'lg'}
+                p={6}
+                textAlign={'center'}
+              >
+                <Avatar
+                  size={'xl'}
+                  src={image}
+                  mb={4}
+                  pos={'relative'}
+                  _after={{
+                    content: '""',
+                    w: 4,
+                    h: 4,
+                    bg: 'green.300',
+                    border: '2px solid white',
+                    rounded: 'full',
+                    pos: 'absolute',
+                    bottom: 0,
+                    right: 3,
+                  }}
+                />
+                <Heading fontSize={'2xl'} fontFamily={'body'}>
+                  {company}
+                </Heading>
+                <Text fontWeight={600} color={'gray.500'} mb={4}>
+                  {subcompany}
+                </Text>
+                <Text textAlign={'center'} color={useColorModeValue('gray.700', 'gray.400')} px={3}>
+                  {desc}
+                </Text>
+        
+                <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
+                  
+                  <Badge px={2} py={1} bg={useColorModeValue('gray.50', 'gray.800')} fontWeight={'400'}>
+                    {location}
+                  </Badge>
+                  <Badge px={2} py={1} bg={useColorModeValue('gray.50', 'gray.800')} fontWeight={'400'}>
+                    {time}
+                  </Badge>
+                </Stack>
+        
+                <Stack mt={8} direction={'row'} spacing={4}>
+                  <Button flex={1} fontSize={'sm'} rounded={'full'} _focus={{ bg: 'gray.200' }}>
+                    Consulte
+                  </Button>
+                  <Button
+                    flex={1}
+                    fontSize={'sm'}
+                    rounded={'full'}
+                    bg={'blue.400'}
+                    color={'white'}
+                    boxShadow={
+                      '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+                    }
+                    _hover={{ bg: 'blue.500' }}
+                    _focus={{ bg: 'blue.500' }}>
+                    Follow
+                  </Button>
+                </Stack>
+              </Box>
+            </Center>
+          );
+        })}
+      </Flex>
+    </Box>
+  );
+};
 
-        )
-       }
-      </div>
-    </div>
-  )
-}
 export default Stage;
