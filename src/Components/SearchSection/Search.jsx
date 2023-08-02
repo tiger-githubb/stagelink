@@ -11,12 +11,14 @@ import {
 import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
 import { BsHouseDoor } from 'react-icons/bs';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { extendTheme } from '@chakra-ui/react'
+
 
 export const Search = () => {
   return (
     <Box 
     //bg={'blue.50'}
-      className='searchDiv grid gap-10 bg-[#F1F4F8] rounded-[10px]'
+      className='searchDiv grid gap-10 bg-[#F1F] rounded-[10px]'
       p={['1rem', '2rem', '3rem']}
     >
       <form action=''>
@@ -26,8 +28,10 @@ export const Search = () => {
           justify={['center', 'space-between']}
           bg={useColorModeValue('white', '#F1F4F8')}
           rounded='8px'
-          p='5'
-          boxShadow='lg'
+          //pb='50'
+          pb='10'
+          mt='2'
+          boxShadow=''
         >
           <Flex gap='2' align='center'>
             <AiOutlineSearch className='text-[35px] icon' />
@@ -60,28 +64,31 @@ export const Search = () => {
           </Flex>
 
           <Button
-            className='bg-primary rounded-[10px]'
-            color='white'
+            className='bg-brand.primary rounded-[10px]'
+            color='brand.primary'
             px={['8', '10']}
             py={['3', '5']}
             cursor='pointer'
+            variant='solid'
             _hover={{ bg: 'blue.300' }}
           >
             Recherche
-          </Button>
+       </Button>
+          
         </Stack>
 
         <Stack
         direction={['column', 'row']}
         gap='4'
         align='center'
-        justify='center'
+       // justify='center'
         mt='5'
+        m='0'
         boxShadow='md'
       >
         <Stack direction={['column', 'row']} spacing='2' align='center'>
-          <Text className='text-[#808080] font-semibold'>Trier</Text>
-          <Select name='' id='relevance' bg='white' rounded='5px' px='2' py='1'>
+          <Text className='text-[#808080] font-semibold'>Trier </Text>
+          <Select name='' id='relevance' bg='white' rounded='5px' px='3' py='1'>
             <option value=''>Pertinence</option>
             <option value=''>Inclusive</option>
             <option value=''>Commencer avec</option>
@@ -109,7 +116,7 @@ export const Search = () => {
           </Select>
         </Stack>
 
-        <Text className='text-[#a1a1a1]'>Réinitialiser</Text>
+        <Text className='text-[#a1a1a1]' _hover={{ color: 'brand.primary' }}>Réinitialiser</Text>
       </Stack>
       </form>
 
