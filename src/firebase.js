@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCISwylwnb6EGFziVWu3CS5ZuyTYWt6MhM",
-  authDomain: "stage-link-d6a20.firebaseapp.com",
-  projectId: "stage-link-d6a20",
-  storageBucket: "stage-link-d6a20.appspot.com",
-  messagingSenderId: "766522059596",
-  appId: "1:766522059596:web:b80766754ae0ce095f3de9"
+  apiKey: "AIzaSyARmIvW5nH9FAJ4w1XuKsQHYqEFAvgE09o",
+  authDomain: "gestag-b97bf.firebaseapp.com",
+  projectId: "gestag-b97bf",
+  storageBucket: "gestag-b97bf.appspot.com",
+  messagingSenderId: "88988297026",
+  appId: "1:88988297026:web:61e0e4672d583cba980adb"
 };
 
 // Initialize Firebase
