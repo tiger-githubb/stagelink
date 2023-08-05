@@ -54,36 +54,36 @@ const NavBar = () => {
         {/* Affichez le menu complet sur PC */}
         {!displayMenuButton && (
           <Box
-            as="nav"
-            display={{ base: 'none', md: 'flex' }}
-            align="center"
-            color="white" // Texte en blanc
-          >
-            <Link to="/stage" mx={2}>
-              Stage
-            </Link>
-            <Link to="/entreprise" mx={2}>
-              Entreprise
-            </Link>
-            <Link to="/a-propos" mx={2}>
-              A propos
-            </Link>
-            <Link to="/contact" mx={2}>
-              Contact
-            </Link>
-            <Link to="/blog" mx={2}>
-              Blog
-            </Link>
-            <Link to="/login" mx={2}>
-              Connexion
-            </Link>
-            <Link to="/signup" mx={2}>
-              Inscription
-            </Link>
-            <Text mx={2} cursor="pointer" onClick={handlelogout}>
-              Deconnexion
-            </Text>
-          </Box>
+  as="nav"
+  display={{ base: 'none', md: 'flex' }}
+  align="center"
+  color="white" // Texte en blanc
+>
+  <Text as={Link} to="/stage" mx={2} marginLeft="20px" marginRight="20px">
+    Stage
+  </Text>
+  <Text as={Link} to="/entreprise" mx={2} marginLeft="20px" marginRight="20px">
+    Entreprise
+  </Text>
+  <Text as={Link} to="/a-propos" mx={2} marginLeft="20px" marginRight="20px">
+    A propos
+  </Text>
+  <Text as={Link} to="/contact" mx={2} marginLeft="20px" marginRight="20px">
+    Contact
+  </Text>
+  <Text as={Link} to="/blog" mx={2} marginLeft="20px" marginRight="20px">
+    Blog
+  </Text>
+  <Text as={Link} to="/login" mx={2} marginLeft="20px" marginRight="20px">
+    Connexion
+  </Text>
+  <Text as={Link} to="/signup" mx={2} marginLeft="20px" marginRight="20px">
+    Inscription
+  </Text>
+  <Text mx={2} cursor="pointer" onClick={handlelogout} marginLeft="20px" marginRight="20px">
+    Deconnexion
+  </Text>
+</Box>
         )}
       </Flex>
 
@@ -107,13 +107,13 @@ const NavBar = () => {
                 <Link to="/contact" _hover={{ color: 'white' }}>
                   Contact
                 </Link>
-                <Link to="/blog" _hover={{ color: 'white' }}>
+                <Link to="/blog" _hover={{ color: 'white'  }}>
                   Blog
                 </Link>
-                <Link to="/login" _hover={{ color: 'white' }}>
+                <Link to="/login" _hover={{ color: 'white'  }}>
                   Connexion
                 </Link>
-                <Link to="/signup" _hover={{ color: 'white' }}>
+                <Link to="/signup" _hover={{ color: 'white'  }}>
                   Inscription
                 </Link>
                 <Text _hover={{ color: 'white' }} onClick={handlelogout} cursor="pointer">
