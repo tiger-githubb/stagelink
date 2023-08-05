@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 import app from '../firebase';
 import { getFirestore, collection, where, query, getDocs } from 'firebase/firestore';
-import ProfileForm from '../Components/ProfileSection/ProfileForm';
-import ProfileShow from '../Components/ProfileSection/ProfileShow';
-import AnnonceForm from '../Components/AnoncesSection.jsx/Anonceform';
+
+import AnnonceForm from '../Components/AnoncesSection.jsx/AnonceForm';
 import AnnonceShow from '../Components/AnoncesSection.jsx/AnonceShow';
 
 const Annonces = () => {
