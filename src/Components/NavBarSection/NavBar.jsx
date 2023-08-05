@@ -80,6 +80,9 @@ const NavBar = () => {
   <Text as={Link} to="/signup" mx={2} marginLeft="20px" marginRight="20px">
     Inscription
   </Text>
+  <Text as={Link} to="/dashboard" mx={2} marginLeft="20px" marginRight="20px">
+    Dashboard
+  </Text>
   <Text mx={2} cursor="pointer" onClick={handlelogout} marginLeft="20px" marginRight="20px">
     Deconnexion
   </Text>
