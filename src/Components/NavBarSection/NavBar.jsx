@@ -14,7 +14,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   VStack,
-  useBreakpointValue, // Importez useBreakpointValue
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
@@ -31,6 +31,9 @@ const NavBar = () => {
 
   // Utilisez useBreakpointValue pour définir le bouton de menu
   const displayMenuButton = useBreakpointValue({ base: true, md: false });
+
+  // Vérifiez si l'utilisateur est connecté en vérifiant le localStorage
+  const isUserLoggedIn = !!localStorage.getItem('token') && !!localStorage.getItem('user');
 
   return (
     <Box bg="brand.primary" px={4} py={3}>
@@ -53,40 +56,37 @@ const NavBar = () => {
 
         {/* Affichez le menu complet sur PC */}
         {!displayMenuButton && (
-          <Box
-  as="nav"
-  display={{ base: 'none', md: 'flex' }}
-  align="center"
-  color="white" // Texte en blanc
->
-  <Text as={Link} to="/stage" mx={2} marginLeft="20px" marginRight="20px">
-    Stage
-  </Text>
-  <Text as={Link} to="/entreprise" mx={2} marginLeft="20px" marginRight="20px">
-    Entreprise
-  </Text>
-  <Text as={Link} to="/a-propos" mx={2} marginLeft="20px" marginRight="20px">
-    A propos
-  </Text>
-  <Text as={Link} to="/contact" mx={2} marginLeft="20px" marginRight="20px">
-    Contact
-  </Text>
-  <Text as={Link} to="/blog" mx={2} marginLeft="20px" marginRight="20px">
-    Blog
-  </Text>
-  <Text as={Link} to="/login" mx={2} marginLeft="20px" marginRight="20px">
-    Connexion
-  </Text>
-  <Text as={Link} to="/signup" mx={2} marginLeft="20px" marginRight="20px">
-    Inscription
-  </Text>
-  <Text as={Link} to="/dashboard" mx={2} marginLeft="20px" marginRight="20px">
-    Dashboard
-  </Text>
-  <Text mx={2} cursor="pointer" onClick={handlelogout} marginLeft="20px" marginRight="20px">
-    Deconnexion
-  </Text>
-</Box>
+          <Box as="nav" display={{ base: 'none', md: 'flex' }} align="center" color="white">
+            <Text as={Link} to="/stage" mx={2} marginLeft="20px" marginRight="20px">
+              Stage
+            </Text>
+            <Text as={Link} to="/entreprise" mx={2} marginLeft="20px" marginRight="20px">
+              Entreprise
+            </Text>
+            <Text as={Link} to="/a-propos" mx={2} marginLeft="20px" marginRight="20px">
+              A propos
+            </Text>
+            <Text as={Link} to="/contact" mx={2} marginLeft="20px" marginRight="20px">
+              Contact
+            </Text>
+            <Text as={Link} to="/blog" mx={2} marginLeft="20px" marginRight="20px">
+              Blog
+            </Text>
+            <Text as={Link} to="/login" mx={2} marginLeft="20px" marginRight="20px">
+              Connexion
+            </Text>
+            <Text as={Link} to="/signup" mx={2} marginLeft="20px" marginRight="20px">
+              Inscription
+            </Text>
+            {isUserLoggedIn && ( // Vérifiez si l'utilisateur est connecté
+              <Text as={Link} to="/dashboard" mx={2} marginLeft="20px" marginRight="20px">
+                Dashboard
+              </Text>
+            )}
+            <Text mx={2} cursor="pointer" onClick={handlelogout} marginLeft="20px" marginRight="20px">
+              Deconnexion
+            </Text>
+          </Box>
         )}
       </Flex>
 
@@ -97,7 +97,7 @@ const NavBar = () => {
             <DrawerCloseButton />
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
-              <VStack spacing={4} color="white"> {/* Texte en blanc */}
+              <VStack spacing={4} color="white">
                 <Link to="/stage" _hover={{ color: 'white' }}>
                   Stage
                 </Link>
@@ -110,15 +110,20 @@ const NavBar = () => {
                 <Link to="/contact" _hover={{ color: 'white' }}>
                   Contact
                 </Link>
-                <Link to="/blog" _hover={{ color: 'white'  }}>
+                <Link to="/blog" _hover={{ color: 'white' }}>
                   Blog
                 </Link>
-                <Link to="/login" _hover={{ color: 'white'  }}>
+                <Link to="/login" _hover={{ color: 'white' }}>
                   Connexion
                 </Link>
-                <Link to="/signup" _hover={{ color: 'white'  }}>
+                <Link to="/signup" _hover={{ color: 'white' }}>
                   Inscription
                 </Link>
+                {isUserLoggedIn && ( // Vérifiez si l'utilisateur est connecté
+                  <Link to="/dashboard" _hover={{ color: 'white' }}>
+                    Dashboard
+                  </Link>
+                )}
                 <Text _hover={{ color: 'white' }} onClick={handlelogout} cursor="pointer">
                   Deconnexion
                 </Text>
