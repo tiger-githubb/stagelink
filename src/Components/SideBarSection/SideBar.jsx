@@ -42,13 +42,13 @@ const Sidebar = () => {
               <Text>Accueil</Text>
             </Flex>
           </Link>
-          <Link to="/profile">
+          <Link to="/dashboard/profile"> {/* Lien vers la page de profil */}
             <Flex align="center">
               <Icon as={AiOutlineUser} fontSize="xl" mr="2" />
               <Text>Profil</Text>
             </Flex>
           </Link>
-          <Link to="/add-post">
+          <Link to="/dashboard/annonces"> {/* Lien vers la page des annonces */}
             <Flex align="center">
               <Icon as={AiOutlineFileAdd} fontSize="xl" mr="2" />
               <Text>Ajouter une annonce</Text>

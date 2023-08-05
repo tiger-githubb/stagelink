@@ -1,19 +1,21 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { signOut,getAuth } from "firebase/auth";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../Components/NavBarSection/NavBar';
 import Sidebar from '../Components/SideBarSection/SideBar';
+import ProfileForm from '../Components/ProfileSection/ProfileForm';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const auth = getAuth();
-  
   return (
-    <div>
-      < NavBar />
-        <Sidebar />
-    </div>
-  )
-}
+    <Router>
+      <NavBar />
+      <Sidebar />
+      <Switch>
+        {/* Ajoutez ici d'autres routes pour les différentes pages du dashboard */}
+        <Route path="/dashboard/profile" component={ProfileForm} />
+        {/* Ajoutez les autres routes ici */}
+      </Switch>
+    </Router>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

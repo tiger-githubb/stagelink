@@ -10,8 +10,10 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Singnup from './pages/Singnup.jsx';
 import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
-import Dashboard from './pages/Dashboard';
 import { Protected } from './Components/Protected.jsx';
+import Profile from './pages/Profile'
+import Dashboard from './pages/dashboard'
+import Annonces from './pages/Annonces'
 
 
 
@@ -37,7 +39,8 @@ const router = createBrowserRouter (
       <Route path='/' element={<Protected/>}/>
       <Route path='/' index element={<Home/>}/>
       <Route path='/dashboard' index element={<Dashboard/>}/>
-
+      <Route path='/dashboard/profile' index element={<Profile/>}/>
+      <Route path='/dashboard/annonces' index element={<Annonces/>}/>
     </Route>
 
   )
