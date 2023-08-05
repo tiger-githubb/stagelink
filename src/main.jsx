@@ -12,7 +12,7 @@ import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
 import { Protected } from './Components/Protected.jsx';
 import Profile from './pages/Profile'
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/dashboard.jsx'
 import Annonces from './pages/Annonces'
 
 
