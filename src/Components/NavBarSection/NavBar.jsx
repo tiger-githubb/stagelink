@@ -35,6 +35,8 @@ const NavBar = () => {
   // Vérifiez si l'utilisateur est connecté en vérifiant le localStorage
   const isUserLoggedIn = !!localStorage.getItem('token') && !!localStorage.getItem('user');
 
+  console.log('isUserLoggedIn:', isUserLoggedIn); // Ajout d'un console log pour vérifier la valeur de isUserLoggedIn
+
   return (
     <Box bg="brand.primary" px={4} py={3}>
       <Flex justify="space-between" align="center">
